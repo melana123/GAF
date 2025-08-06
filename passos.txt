@@ -1,0 +1,8 @@
+---Configuração do GIT
+git config --global user.name melana123
+git config --global user.email melana.etec@gmail.com
+
+---Criando um projeto API
+dotnet new webapi -o GAF.Api --use-controllers
+
+dotnet add package Swashbuckle.AspNetCore --version 9.0.0
