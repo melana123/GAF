@@ -41,18 +41,16 @@ namespace GAF.Api.Data;
         #endregion
 
         #region Populate Usuário
-        List<Usuario> usuarios = new() {
-            new Usuario(){
+        List<User> usuarios = new() {
+            new User(){
                 Id = "ddf093a6-6cb5-4ff7-9a64-83da34aee005",
-                Email = "gallojunior@gmail.com",
-                NormalizedEmail = "GALLOJUNIOR@GMAIL.COM",
-                UserName = "GalloJunior",
-                NormalizedUserName = "GALLOJUNIOR",
+                Email = "melana.etec@gmail.com",
+                NormalizedEmail = "MELANA.ETEC@GMAIL.COM",
+                UserName = "MELANA",
+                NormalizedUserName = "MELANA",
                 LockoutEnabled = true,
                 EmailConfirmed = true,
-                Nome = "José Antonio Gallo Junior",
-                DataNascimento = DateTime.Parse("05/08/1981"),
-                Foto = "/img/usuarios/ddf093a6-6cb5-4ff7-9a64-83da34aee005.png"
+                Nome = "Melana Zinsly Souza",
             }
         };
         foreach (var user in usuarios)
@@ -60,7 +58,7 @@ namespace GAF.Api.Data;
             PasswordHasher<IdentityUser> pass = new();
             user.PasswordHash = pass.HashPassword(user, "123456");
         }
-        builder.Entity<Usuario>().HasData(usuarios);
+        builder.Entity<User().HasData(usuarios);
         #endregion
 
         #region Populate UserRole - Usuário com Perfil
@@ -74,13 +72,9 @@ namespace GAF.Api.Data;
                 UserId = usuarios[0].Id,
                 RoleId = roles[1].Id
             },
-            new IdentityUserRole<string>() {
-                UserId = usuarios[0].Id,
-                RoleId = roles[2].Id
-            }
+    
         };
         builder.Entity<IdentityUserRole<string>>().HasData(userRoles);
         #endregion
     }
-
 }
